@@ -9,7 +9,7 @@
 
 // Sprite
 @mixin sprite ($x, $y, $height, $width) {
-	background: url(sprite.png) $x $y no-repeat;
+	background: image-url('sprite.png') $x $y no-repeat;
 	height: $height;
 	width: $width;
 }
@@ -17,7 +17,7 @@
 // Retina Sprite
 @mixin retina-sprite() {
 	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-		background-image: url(sprite@2x.png); background-size: 1000px 1000px;
+		background-image: image-url('sprite@2x.png'); background-size: 1000px 1000px;
 	}
 }
 
