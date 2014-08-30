@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
@@ -21,4 +22,4 @@ group :test do
   gem 'shoulda-matchers', require: false
 end
 
-ruby '2.0.0'
+ruby '2.1.2'
