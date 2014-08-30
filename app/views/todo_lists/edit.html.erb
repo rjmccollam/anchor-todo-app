@@ -1,6 +1,5 @@
-<h1>Editing todo_list</h1>
+<h1>Edit  <%= @todo_list.description %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @todo_list %> |
-<%= link_to 'Back', todo_lists_path %>
+<%= link_to 'Cancel', todo_lists_path, class: 'button' %>

@@ -1,25 +1,27 @@
-<h1><%= @todo_list.title %></h1>
+<h1 class="no-margin"><%= @todo_list.title %></h1>
 
-<table class="todo_items">
-	<tr>
-		<th width="25%">Completed?</th>
-		<th width="65%">Content</th>
-		<th width="10%">Functions</th>
-	</tr>
-	<% @todo_list.todo_items.each do |todo_item| %>
-	<tr id="<%= dom_id(todo_item) %>">
-		<td>
-			<% if todo_item.completed? %>
-				<%= todo_item.completed_at %>
-			<% else %>
-				<%= link_to "Mark Completed", complete_todo_list_todo_item_path(todo_item), method: :patch %>
-			<% end %>
-		</td>
-		<td><%= todo_item.content %></td>
-		<td><%= link_to "Edit", edit_todo_list_todo_item_path(todo_item) %></td>
-		<td><%= link_to "Delete", todo_list_todo_item_path(todo_item), method: :delete, data: { confirm: "Are you sure?" } %></td>
-	</tr>
-	<% end %>
-</table>
+<p><%= @todo_list.description %></p>
 
-<p><%= link_to "New Todo Item", new_todo_list_todo_item_path %></p>
+<h2>Items - <%= link_to 'Create New', new_todo_list_todo_item_path, class: 'new-item' %></h2>
+
+<% @todo_list.todo_items.each do |todo_item| %>
+
+	<div class="list-item clearfix" id="<%= dom_id(todo_item) %>">
+		
+		<%= todo_item.content %>
+
+		<ul class="actions right">
+			<li>
+				<% if todo_item.completed? %>
+					<%= todo_item.completed_at %>
+				<% else %>
+					<%= link_to 'Complete', complete_todo_list_todo_item_path(todo_item), method: :patch, class: 'complete' %>
+				<% end %>
+			</li>
+		    <li><%= link_to 'Edit', edit_todo_list_todo_item_path(todo_item), class: 'edit' %></li>
+		    <li><%= link_to 'Delete', todo_list_todo_item_path(todo_item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete' %></li>
+		</ul>
+
+	</div>
+
+<% end %>

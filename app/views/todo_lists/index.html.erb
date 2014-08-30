@@ -1,22 +1,16 @@
-<h1>Todo Lists</h1>
+<h1>All Lists - <%= link_to 'Create New', new_todo_list_path, class: 'new-item' %></h1>
 
 <% @todo_lists.each do |todo_list| %>
-<div id="<%= dom_id(todo_list) %>">
 
-  <h2><%= todo_list.title %></h2>
+	<div class="list-item clearfix" id="<%= dom_id(todo_list) %>">
 
-  <p><%= todo_list.description %></p>
+	  <%= link_to todo_list.title, todo_list_todo_items_path(todo_list), class: 'item-title' %>
 
-  <ul class="functions">
-    <li><%= link_to 'List Items', todo_list_todo_items_path(todo_list) %></li>
-    <li><%= link_to 'Show', todo_list %></li>
-    <li><%= link_to 'Edit', edit_todo_list_path(todo_list) %></li>
-    <li><%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-  </ul>
-   
-</div>
+	  <ul class="actions right">
+	    <li><%= link_to 'Edit', edit_todo_list_path(todo_list), class: 'edit' %></li>
+	    <li><%= link_to 'Delete', todo_list, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete' %></li>
+	  </ul>
+	   
+	</div>
+
 <% end %>
-
-<br>
-
-<%= link_to 'New Todo list', new_todo_list_path %>
