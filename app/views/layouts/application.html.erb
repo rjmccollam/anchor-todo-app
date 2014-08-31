@@ -2,7 +2,9 @@
 <html>
 <head>
 
-	<title>Anchor App</title>
+	<title>Anchor Todo App</title>
+
+	<meta name="description" content="Super simple todo lists to easily keep track of anything.">
 
 	<%= stylesheet_link_tag    'style', 'data-turbolinks-track' => true %>
 
@@ -10,6 +12,8 @@
 
 	<script type="text/javascript" src="//use.typekit.net/ffi6ngx.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<%= analytics_init if Rails.env.production? %>
 
 	<%= csrf_meta_tags %>
 
